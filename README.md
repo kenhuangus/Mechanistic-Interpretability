@@ -73,9 +73,6 @@ The script will:
 ## Further Reading
 
 - Anthropic's Mechanical Interpretability Blog: https://transformer-circuits.pub/
-- Neel Nanda's Explaining Transformers: https://www.3blue1brown.com/lessons/attention
-- "Circuits" Paper: https://arxiv.org/abs/2303.09740
-- "A Mathematical Framework for Transformer Circuits": https://arxiv.org/abs/2305.00010
 
 ## Extending the Demo
 

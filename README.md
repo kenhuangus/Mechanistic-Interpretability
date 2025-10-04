@@ -102,10 +102,37 @@ Both scripts will:
 - Print MI explanations and provide perfect predictions
 
 ## Expected Output
-- Training loss decreases rapidly to near zero.
-- Perfect predictions on the test sample.
-- Heatmaps showing which neurons activate for different inputs.
-- Explanatory text connecting to MI principles.
+
+### Training Progress (`training_loss.png` / `notebook_training_loss.png`)
+- **What it shows**: A line plot of training loss over 100 epochs, plotted on a logarithmic scale
+- **What to look for**:
+  - Loss starts around 1.0-2.0 in early epochs
+  - Rapid decrease to ~0.1 by epoch 20-30
+  - Converges to exactly 0.0000 loss (perfect accuracy) by epoch 60-80
+  - This demonstrates the model learning the reversal task to perfection
+
+### Model Internals (`activation_heatmaps.png`)
+- **What it shows**: Two heatmaps showing neuron activations in the model's hidden layers for a test input
+- **Left plot**: First hidden layer (16 neurons) - raw activations after ReLU
+- **Right plot**: Second hidden layer (16 neurons) - processed representations
+- **What to look for**:
+  - Most neurons show near-zero activation, following ReLU behavior
+  - A few neurons show strong activation (yellow/red areas)
+  - The pattern represents how the model encodes the reversal mapping
+  - Different neurons specialize for different aspects of the task
+  - Heatmaps reveal the 'computational fingerprint' of how reversal is implemented internally
+
+### Console Output
+- Training progress: Loss decreases to 0.0000
+- Perfect predictions: Input sequence reversed correctly
+- MI explanations: Text connecting MLP behavior to transformer circuits
+
+## Generated Visualization Files
+- `training_loss.png`: Training curves (demo.py output)
+- `notebook_training_loss.png`: Training curves (demo_notebook.py output)
+- `activation_heatmaps.png`: Neuron activation patterns for both scripts
+
+The plots and activations illustrate key MI concepts: models aren't "black boxes" - their internal computations can be visualized and understood.
 
 ## Educational Takeaways
 
@@ -117,10 +144,6 @@ Both scripts will:
 ## Further Reading
 
 - Anthropic's Mechanical Interpretability Blog: https://transformer-circuits.pub/
-- Neel Nanda's Explaining Transformers: https://www.3blue1brown.com/lessons/attention
-- "Circuits" Paper: https://arxiv.org/abs/2303.09740
-- "A Mathematical Framework for Transformer Circuits": https://arxiv.org/abs/2305.00010
-- AI Safety Camp: https://aisafety.camp/
 
 ## Extending the Demo
 

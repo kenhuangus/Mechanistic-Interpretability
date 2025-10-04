@@ -179,29 +179,30 @@ After running either script, three PNG files will be saved in the current direct
 - Shows processed representations after another linear transformation
 - Reveals how information is transformed through the network
 
+**What you're looking at:**
+
+- **Two heatmaps**: One for each hidden layer in the network
+- **X-axis (Neuron)**: Individual neurons numbered 0-15 in each layer
+- **Y-axis (Sample)**: A single input sample being processed
+- **Colors**: Represent activation values ranging from approximately -0.5 to +0.5
+  - Yellow/bright colors: Positive activations (neuron is strongly activated)
+  - Dark purple/navy: Negative activations (neuron is inhibited)
+  - Green/teal: Near-zero or moderate activations
+
+**Key observations:**
+
+1. **First hidden layer**: Shows more variation with distinct positive peaks (neurons 0, 14-15) and negative valleys (neurons 5, 9-10)
+
+2. **Second hidden layer**: Displays a different activation pattern, suggesting the network has transformed the features. Notable activations appear around neurons 1-2, 10, and 14
+
+3. **Feature transformation**: The difference between layers shows how the network progressively transforms raw input features into more abstract representations used for final predictions
+
+This type of visualization is useful for understanding what a neural network "learns" and how information flows through its layers during inference.
+
 **Technical Details**:
-- Y-axis: Individual neuron index (0-15)
-- X-axis: Activation intensity (color-coded, higher = warmer colors)
-- ReLU-based activations (negative values become zero)
-
-**What Students Should Look For**:
-- **Sparseness**: Most neurons show zero or near-zero activation (black/very dark)
-- **Selectivity**: Only a few neurons fire strongly (bright yellow/white)
-- **Layer Differences**: Compare left vs right - how representations evolve
-- **Pattern Recognition**: Look for consistent activation across similar inputs
-- **Neurons Specialize**: Different neurons light up for different aspects of the reversal task
-
-**MI Insights**:
-- Demonstrates "role specialization" - neurons have specific responsibilities
-- Shows how information is compressed and transformed internally
-- Reveals the "circuit" implementing sequence reversal
-- Illustrates why MI focuses on sparse, interpretable activations
-
-**Interpretation Questions**:
-- Which neurons are critical for the reversal function?
-- How does activation change if you modify the input sequence?
-- What patterns emerge when testing different sequences?
-- How could you probe these neurons to understand their roles?
+- ReLU activations in first layer, followed by second linear transformation
+- Single sample analysis shows network's internal feature processing
+- Heatmaps reveal which aspects of reversal task trigger specific neurons
 
 ### Using These Visualizations for MI Research
 

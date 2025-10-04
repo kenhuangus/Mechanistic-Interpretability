@@ -4,12 +4,34 @@ This demo introduces data science students to Mechanistic Interpretability (MI) 
 
 ## What is Mechanistic Interpretability?
 
-Mechanistic Interpretability aims to understand the internal mechanisms of machine learning models, particularly neural networks. Instead of treating models as black boxes, we reverse-engineer their computations to see how they process inputs and generate outputs.
+Mechanistic Interpretability (MI) is an emerging field that aims to reverse-engineer the internal computations of neural networks to understand how they work, rather than just what they do. Unlike traditional interpretability methods that focus on feature importance or saliency maps, MI seeks to discover the exact algorithms and circuits inside models.
 
-Key concepts in MI:
-- **Circuit Discovery**: Finding functional subnetworks within larger models.
-- **Probing**: Using small models to interpret activations at intermediate layers.
-- **Mechanisms**: Understanding how models compute answers, not just what they predict.
+### Why MI Matters
+- **Model Reliability**: Understands why models fail and ensures they follow intended logic
+- **Safety & Alignment**: Critical for AI safety research, especially in large language models
+- **Scientific Progress**: Advances our fundamental understanding of neural computation
+- **Robustness**: Identifies and fixes model vulnerabilities or biases
+
+### Key MI Concepts
+- **Circuit Discovery**: Identifying functional subnetworks (circuits) within large models that handle specific computations
+- **Probing**: Training small classifiers to interpret hidden layer activations
+- **Mechanisms**: Understanding the concrete algorithms implemented by model weights
+- **Activation Engineering**: Techniques to manipulate internal computations for understanding or intervention
+- **Superposition & Polysemanticity**: How models pack multiple concepts into single neuron activations
+
+### MI Research Areas
+- **Toy Models**: Small, interpretable models (like this MLP) that learn simple tasks
+- **Grokking**: Sudden generalization after overfitting, revealing internal learning dynamics
+- **Sparse Autoencoders**: Unpacking dense activations into interpretable feature sets
+- **Path Patching**: Causal analysis of information flow through model layers
+- **Representation Engineering**: Steerable representations for model behavior control
+
+### Connection to Transformers and LLMs
+This demo uses a simple MLP, but MI techniques scale to transformers:
+- Attention heads implement specific "algorithms" (e.g., copying, induction, math)
+- Circuits span multiple heads and layers
+- MLP sublayers perform feature processing and transformations
+- Understanding these mechanisms helps with jailbreak resistance, hallucination reduction, and capability elicitation
 
 ## Demo Overview
 
@@ -40,22 +62,44 @@ After training, we:
 
 ## How to Run the Demo
 
-1. Install dependencies:
+### Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kenhuangus/Mechanistic-Interpretability.git
+   cd Mechanistic-Interpretability
+   ```
+
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. Run the demo:
-   ```bash
-   python demo.py
-   ```
+### Running the Scripts
 
-The script will:
-- Generate training data.
-- Train the model (may take 1-2 minutes).
-- Display training loss plot.
-- Analyze a sample prediction and show activation maps.
-- Print explanations.
+#### For Educational Walkthrough: `demo_notebook.py`
+- **Best For**: Students learning step-by-step, beginners, interactive exploration
+- **Features**: Detailed explanations, progress bars, educational guidance, modifiable for experiments
+- **Run**:
+  ```bash
+  python demo_notebook.py
+  ```
+- **Output**: Step-by-step console tutorial, same plots as main demo, encouragement to modify code
+
+#### For Automated Demo: `demo.py`
+- **Best For**: Overview of results, automated run, advanced users
+- **Features**: End-to-end execution, brief logs, focused on results
+- **Run**:
+  ```bash
+  python demo.py
+  ```
+- **Output**: Training epochs, final analysis, generated PNG plots
+
+### Expected Behavior
+Both scripts will:
+- Generate 2000 training sequences for `demo.py` (1000 for notebook)
+- Train for 100 epochs to perfect accuracy (loss → 0.0000)
+- Save `training_loss.png` and `activation_heatmaps.png`
+- Print MI explanations and provide perfect predictions
 
 ## Expected Output
 - Training loss decreases rapidly to near zero.
@@ -73,6 +117,10 @@ The script will:
 ## Further Reading
 
 - Anthropic's Mechanical Interpretability Blog: https://transformer-circuits.pub/
+- Neel Nanda's Explaining Transformers: https://www.3blue1brown.com/lessons/attention
+- "Circuits" Paper: https://arxiv.org/abs/2303.09740
+- "A Mathematical Framework for Transformer Circuits": https://arxiv.org/abs/2305.00010
+- AI Safety Camp: https://aisafety.camp/
 
 ## Extending the Demo
 

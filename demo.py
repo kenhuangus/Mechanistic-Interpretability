@@ -103,7 +103,8 @@ def analyze_model(model, data_sample):
     plt.colorbar()
 
     plt.tight_layout()
-    plt.show()
+    plt.savefig('activation_heatmaps.png')
+    print("Activation heatmaps saved as 'activation_heatmaps.png'")
 
     print("\nMechanistic Interpretability Explanation:")
     print("1. The model learns to reverse sequences by transforming input embeddings into hidden representations.")
@@ -128,7 +129,8 @@ def run_demo():
     plt.ylabel('Loss')
     plt.yscale('log')
     plt.title('Training Loss (Log Scale)')
-    plt.show()
+    plt.savefig('training_loss.png')
+    print("Training loss plot saved as 'training_loss.png'")
 
     # Analyze a sample
     test_input, test_target = data[0]

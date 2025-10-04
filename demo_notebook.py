@@ -96,7 +96,8 @@ plt.xlabel('Epoch')
 plt.ylabel('Loss')
 plt.yscale('log')
 plt.title('Training Loss (Log Scale)')
-plt.show()
+plt.savefig('notebook_training_loss.png')
+print("Training loss plot saved as 'notebook_training_loss.png'")
 
 ########## Step 4: Interpretation ##########
 print("\n--- Step 4: Interpretation ---")
@@ -125,7 +126,8 @@ ax2.set_title('Second hidden layer activations')
 ax2.set_xlabel('Neuron')
 
 plt.tight_layout()
-plt.show()
+plt.savefig('activation_heatmaps.png')
+print("Activation heatmaps saved as 'activation_heatmaps.png'")
 
 ########## Step 5: MI Insights ##########
 print("\n--- Step 5: Mechanistic Interpretability Insights ---")
